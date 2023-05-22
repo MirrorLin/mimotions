@@ -112,9 +112,9 @@ def main(_user,_passwd,min_1, max_1):
     data = f'userid={userid}&last_sync_data_time=1597306380&device_type=0&last_deviceid=DA932FFFFE8816E7&data_json={data_json}'
 
     response = requests.post(url, data=data, headers=head).json()
-    # print(response)
+    print(response)
     result = f"[{now}]\n账号：{user[:3]}****{user[7:]}\n修改步数（{step}）[" + response['message'] + "]\n"
-    #print(result)
+    print(result)
     return result
 
 
@@ -131,7 +131,7 @@ def get_app_token(login_token):
     url = f"https://account-cn.huami.com/v1/client/app_tokens?app_name=com.xiaomi.hm.health&dn=api-user.huami.com%2Capi-mifit.huami.com%2Capp-analytics.huami.com&login_token={login_token}"
     response = requests.get(url, headers=headers).json()
     app_token = response['token_info']['app_token']
-    # print("app_token获取成功！")
+    print("app_token获取成功！")
     # print(app_token)
     return app_token
 
